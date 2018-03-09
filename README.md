@@ -1,2 +1,2 @@
 # tutorial
-Abstract class vs interface
+This is a tutorial for java programming language
