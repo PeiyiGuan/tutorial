@@ -1,0 +1,79 @@
+Java is one of the most popular OOP (Object oriented programming) languages in the world.
+Abstrat classes and Interfaces is one of the most important concept in OOP,which is used for defining abstract objects and concepts.
+They are very simlar but also different.
+
+# Abstract Class
+We all know in OOP,everything is 'Object', all of the 'Object' are decribed using classes, however, not all classes can be used to describe
+a Object. If there are lack of information for initiating a specific Object,additional specific class is required to support it, then this
+class is called abstract class. like a new instance new Animal(),we call know there is a animal obj has been created,but we have no idea
+how this Animal look like, it has no specific concept except Animal, therefore, it is a abstract class, the specific class is required like 
+cat,dog.. to do specific obj initiating.
+
+Since abstract concept has no specific obj in OOP,therefore abstract class cannot be instantiated reference because of the abstract concept. 
+There are few important things need to keep in mind when designing your abstract class
+1. abstract class cannot be instantiated,the instantiation should be done by its subclasses, abstract class only need a reference.
+2. absratct method must be in the abstract class,it cannot have body and has to be overwritten by its subclass.
+3. absctract class can have none abstract method at all.
+4. abstract method in its subclass cannot be same name as its super class's abstract method.
+5. inheritance must happen,thus final key word cannot be modifier for the super class.
+6. abstract method cannot be declared using private,static,final.
+
+Example.
+public abstract class Animal {
+    public abstract void cry(); // no method body, waiting to be overwritten
+}
+ 
+public class Cat extends Animal{
+ 
+    @Override
+    public void cry() {
+        System.out.println("cat crying");
+    }
+}
+ 
+public class Dog extends Animal{
+ 
+    @Override
+    public void cry() {
+        System.out.println("dog crying");
+    }
+ 
+}
+ 
+public class Test {
+ 
+    public static void main(String[] args) {
+        Animal a1 = new Cat();
+        Animal a2 = new Dog();
+ 
+        a1.cry();
+        a2.cry();
+    }
+}
+
+------
+output:
+cat crying
+dog crying
+
+# Interfaces
+Interface is a 'class' that is more abstract than abstract classes, interface is not a class,becasue it cannot be Instantiated,because 
+if we do new Interface(), it will not compile.
+
+Interface is used to build the protocol between classes, it is only a style with no instantiation. If a class implements a interface,
+it must override all of its method.
+Interface is an extension of the abstract class,java does not support multi-inheritance,meaning one class can only inherite from only one
+class,but interface is different,one class can implements multiple interfaces,this somehow acchieved the 'multi-inheritance' in java.
+
+Be aware of these when using interfaces
+1. Method in the interfaces must be declared public.
+2. Field could exit inside interfaces, but it can only be constant. It can only be declared using public static final. it can be accessed
+using implementClass.name.
+3. no specific implementation on the method inside interfaces.
+4. non abstract class has to override all of its interfaces method, abstract class may not override all of the interface method.
+5. interface cannot be instantiated.but a variable cann be declared and refer to a reference of a class that implemented this interface.
+ instanceof can be used to check if a obj implements a specific interface.
+6. when using multiple interfaces, make sure their method is not named the same.
+
+
+ 
