@@ -1,2 +1,2 @@
-# tutorial
-This is a tutorial for java programming language
+# java notes
+This is a notes repo for java programming language
